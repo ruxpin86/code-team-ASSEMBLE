@@ -1,7 +1,7 @@
 const Employee = require("../lib/employee");
 
 describe("Employee class", () => {
-  it("Test for name, id, email", () => {
+  it("Tests for name, id, email", () => {
     const employee = new Employee("Jerry", "9", "jerry@email.com");
 
     expect(typeof employee.name).toBe("string");

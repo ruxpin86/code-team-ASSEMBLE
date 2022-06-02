@@ -1,0 +1,27 @@
+{
+  "name": "code-team-assemble",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruxpin86/code-team-ASSEMBLE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruxpin86/code-team-ASSEMBLE/issues"
+  },
+  "homepage": "https://github.com/ruxpin86/code-team-ASSEMBLE#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^28.1.0"
+  }
+}
