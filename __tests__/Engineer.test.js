@@ -1,7 +1,7 @@
 const Engineer = require("../lib/engineer");
 
-decribe("Engineer class", () => {
-  it("Tests for office number and role override", () => {
+describe("Engineer class", () => {
+  it("Tests for github name and role override", () => {
     const engineer = new Engineer(
       "Jerry",
       "9",
@@ -18,9 +18,9 @@ decribe("Engineer class", () => {
       "jerry@email.com",
       "gitJerry90"
     );
-    const { git } = gitHub;
+    const { github } = engineer;
 
-    expect(engineer.getGit()).toBe(git);
+    expect(engineer.getGit()).toBe(github);
   });
   it("should set role to Engineer", () => {
     const engineer = new Engineer(

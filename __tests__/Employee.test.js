@@ -4,17 +4,17 @@ describe("Employee class", () => {
   it("Tests for name, id, email", () => {
     const employee = new Employee("Jerry", "9", "jerry@email.com");
 
-    expect(typeof employee.name).toBe("string");
+    expect(typeof employee.getName()).toBe("string");
 
-    expect(typeof employee.id).toBe("string");
+    expect(typeof employee.getId()).toBe("string");
 
-    expect(typeof employee.email).toBe("string");
+    expect(typeof employee.getEmail()).toBe("string");
   });
   it("should get name", () => {
     const employee = new Employee("Jerry", "9", "jerry@email.com");
-    const { name } = employee;
+    const { empName } = employee;
 
-    expect(employee.getName()).toBe(name);
+    expect(employee.getName()).toBe(empName);
   });
 
   it("should get ID", () => {
