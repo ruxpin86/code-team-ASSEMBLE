@@ -1,6 +1,7 @@
 //declaring global variables and required files
 const inquirer = require("inquirer");
 const fs = require("fs");
+const template = require("./src/template");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
@@ -89,7 +90,7 @@ function empRole() {
     .then((answer) => {
       if (answer.role === "Exit") {
         console.log(answerArray);
-        createEmpCard(); //fix this!!!
+        // createEmpCard(); //fix this!!!
       } else {
         employeeQs(answer.role);
       }
@@ -142,6 +143,6 @@ function internQs(employeeQs) {
 
 managerQs();
 
-function createEmpCard() {
-  fs.writeFileSync("../dist");
-}
+// function createEmpCard() {
+//   fs.writeFileSync("../dist/index.html");
+// }
