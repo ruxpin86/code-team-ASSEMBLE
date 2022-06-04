@@ -2,10 +2,12 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const template = require("./src/template");
+const Employee = require("./lib/employee");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const answerArray = [];
+const genHtml = require("./src/template");
 
 function employeeQs(role) {
   console.log(role);
@@ -28,6 +30,7 @@ function employeeQs(role) {
       },
     ])
     .then((answer) => {
+      const employee = new Employee();
       if (role === "Manager") {
         managerQs(answer);
       } else if (role === "Engineer") {
@@ -143,6 +146,7 @@ function internQs(employeeQs) {
 
 managerQs();
 
-// function createEmpCard() {
-//   fs.writeFileSync("../dist/index.html");
-// }
+function createEmpCard() {
+  const template = genHtml(answerArray);
+  fs.writeFileSync("../dist/index.html");
+}

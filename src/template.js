@@ -1,4 +1,3 @@
-const index = require("../index")
 
 //var for top half of html and var for bottom half
 const htmlTop = `<!DOCTYPE html>
@@ -27,41 +26,55 @@ const htmlBottom = `</body>
 </html>`
 
 //seperate card function for each employee type (3 total)
-function managerGen(){
-    const managerCard = `<div class="card" style="width: 18rem;">
+function managerGen(managerData){
+    return `<div class="card" style="width: 18rem;">
             <div class="card-header">
-                Name
+                ${managerData.name}
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID:${}</li>
-                <li class="list-group-item">Email:${}</li>
-                <li class="list-group-item">${}</li>
+                <li class="list-group-item">ID:${managerData.id}</li>
+                <li class="list-group-item">Email:${managerData.email}</li>
+                <li class="list-group-item">${managerData.office}</li>
             </ul>
         </div>`
 }
 
-function engineerGen(){
-    const engineerCard = `<div class="card" style="width: 18rem;">
+function engineerGen(engineerData){
+    return `<div class="card" style="width: 18rem;">
             <div class="card-header">
-                Name
+                ${engineerData.name}
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID:${}</li>
-                <li class="list-group-item">Email:${}</li>
-                <li class="list-group-item">${}</li>
+                <li class="list-group-item">ID:${engineerData.id}</li>
+                <li class="list-group-item">Email:${engineerData.email}</li>
+                <li class="list-group-item">${engineerData.github}</li>
             </ul>
         </div>`
 }
 
-function internGen(){
-    const interCard = `<div class="card" style="width: 18rem;">
+function internGen(internData){
+    return `<div class="card" style="width: 18rem;">
             <div class="card-header">
-                Name
+                ${internData.name}
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID:${}</li>
-                <li class="list-group-item">Email:${}</li>
-                <li class="list-group-item">${}</li>
+                <li class="list-group-item">ID:${internData.id}</li>
+                <li class="list-group-item">Email:${internData.email}</li>
+                <li class="list-group-item">${internData.school}</li>
             </ul>
         </div>` 
 }
+
+function genHtml(answerArray){
+    const cards = answerArray.map ((empObj) => {
+        if(empObj.getRole() === "Manager"){
+            return managerGen(empObj)
+        } else if(empObj.getRole() === "Engineer") {
+            return engineerGen(empObj)
+        } else (empObj.getRole() === "Intern") {
+            return internGen(empObj)
+        }
+    }) 
+}
+
+module.exports = genHtml
