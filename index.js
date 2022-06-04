@@ -1,7 +1,6 @@
 //declaring global variables and required files
 const inquirer = require("inquirer");
 const fs = require("fs");
-const template = require("./src/template");
 const Employee = require("./lib/employee");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
@@ -9,6 +8,7 @@ const Intern = require("./lib/intern");
 const answerArray = [];
 const genHtml = require("./src/template");
 
+//Array of questions to determine universal employee info
 function employeeQs(role) {
   console.log(role);
   inquirer
@@ -38,11 +38,12 @@ function employeeQs(role) {
       } else if (role === "Intern") {
         internQs(answer);
       } else {
-        console.log("An error occured, please rerun script");
+        console.log("An error occured, please rerun index.js");
       }
     });
 }
 
+//Kickoff function for Manager questions
 function managerQs() {
   inquirer
     .prompt([
@@ -80,6 +81,7 @@ function managerQs() {
     });
 }
 
+//Determine employee role and loop/add more employees or terminate app then generate html
 function empRole() {
   inquirer
     .prompt([
@@ -93,13 +95,14 @@ function empRole() {
     .then((answer) => {
       if (answer.role === "Exit") {
         console.log(answerArray);
-        // createEmpCard(); //fix this!!!
+        genHtml();
       } else {
         employeeQs(answer.role);
       }
     });
 }
 
+//Get unique Engineer input and persist employee questions
 function engineerQs(employeeQs) {
   inquirer
     .prompt([
@@ -122,6 +125,7 @@ function engineerQs(employeeQs) {
     });
 }
 
+//Get unique Intern input and persist employee questions
 function internQs(employeeQs) {
   inquirer
     .prompt([
@@ -144,9 +148,5 @@ function internQs(employeeQs) {
     });
 }
 
+//Call function to begin prompts
 managerQs();
-
-function createEmpCard() {
-  const template = genHtml(answerArray);
-  fs.writeFileSync("../dist/index.html");
-}
