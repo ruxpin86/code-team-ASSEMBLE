@@ -84,8 +84,12 @@ function genHtml(answerArray) {
     }
   });
 
-  fs.writeFile("index.html", htmlTop + cards.join(" ") + htmlBottom, (err) => {
-    err ? console.log(err) : console.log("html has been generated!");
-  });
+  fs.writeFile(
+    "dist/index.html",
+    htmlTop + cards.join(" ") + htmlBottom,
+    (err) => {
+      err ? console.log(err) : console.log("html has been generated!");
+    }
+  );
 }
 module.exports = genHtml;
