@@ -3,44 +3,50 @@ const fs = require("fs");
 //Seperate card function for each employee type (3 total)
 //Generate Manager card
 function managerGen(managerData) {
-  return `<div class="card" style="width: 18rem;">
+  return `
+  <div class="card" style="width: 18rem;">
     <div class="card-header">
-    ${managerData.name}
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID:${managerData.id}</li>
-                <li class="list-group-item">Email:${managerData.email}</li>
-                <li class="list-group-item">${managerData.office}</li>
-            </ul>
-        </div>`;
+      ${managerData.name}
+    </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${managerData.id}</li>
+        <li class="list-group-item">Email: ${managerData.email}</li>
+        <li class="list-group-item">Office: ${managerData.office}</li>
+      </ul>
+    </div>
+`;
 }
 
 //Generate Engineer card
 function engineerGen(engineerData) {
-  return `<div class="card" style="width: 18rem;">
-            <div class="card-header">
-                ${engineerData.name}
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID:${engineerData.id}</li>
-                <li class="list-group-item">Email:${engineerData.email}</li>
-                <li class="list-group-item">${engineerData.github}</li>
-            </ul>
-        </div>`;
+  return `
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      ${engineerData.name}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: ${engineerData.id}</li>
+      <li class="list-group-item">Email: ${engineerData.email}</li>
+      <li class="list-group-item">GitHub: ${engineerData.github}</li>
+    </ul>
+    </div>
+`;
 }
 
 //Generate Intern card
 function internGen(internData) {
-  return `<div class="card" style="width: 18rem;">
-            <div class="card-header">
-                ${internData.name}
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID:${internData.id}</li>
-                <li class="list-group-item">Email:${internData.email}</li>
-                <li class="list-group-item">${internData.school}</li>
-            </ul>
-        </div>`;
+  return `
+  <div class="card" style="width: 18rem;">
+    <div class="card-header col-lg-4">
+      ${internData.name}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: ${internData.id}</li>
+      <li class="list-group-item">Email: ${internData.email}</li>
+      <li class="list-group-item">Current School: ${internData.school}</li>
+    </ul>
+</div>
+`;
 }
 
 function genHtml(answerArray) {
@@ -64,8 +70,14 @@ function genHtml(answerArray) {
                         <p class="lead">With our powers combined, all projects can be conqured!</p>
                     </div>
                 </div>
-            </header><br>`;
-  const htmlBottom = `</body>
+            </header><br>
+            <main>
+            <h1 class="display-4">Team Roster</h1><br>
+            <section style="margin: 10px; display: flex; justify-content: center;">`;
+  const htmlBottom = ` </section>
+                  </main>
+  
+        </body>
         
         </html>`;
   const cards = answerArray.map((empObj) => {
@@ -79,8 +91,8 @@ function genHtml(answerArray) {
       console.log("Error occured, rerun index.js");
     }
   });
-  htmlTop += htmlBottom;
-  fs.writeFile("./dist/index.html", cards, (err) => {
+
+  fs.writeFile(".index.html", htmlTop + cards + htmlBottom, (err) => {
     err ? console.log(err) : console.log("html has been generated!");
   });
 }

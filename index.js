@@ -95,7 +95,7 @@ function empRole() {
     .then((answer) => {
       if (answer.role === "Exit") {
         console.log(answerArray);
-        genHtml();
+        genHtml(answerArray);
       } else {
         employeeQs(answer.role);
       }
