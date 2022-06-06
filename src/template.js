@@ -1,52 +1,44 @@
 const fs = require("fs");
-// const index = require(".index");
 //Seperate card function for each employee type (3 total)
-//Generate Manager card
 function managerGen(managerData) {
-  return `
-  <div class="card" style="width: 18rem;">
+  return `<div class="card" style="width: 18rem;">
     <div class="card-header">
       ${managerData.name}
     </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${managerData.id}</li>
-        <li class="list-group-item">Email: ${managerData.email}</li>
+        <li class="list-group-item">Email: <a href="mailto:${managerData.email}">${managerData.email}</a></li>
         <li class="list-group-item">Office: ${managerData.office}</li>
       </ul>
-    </div>
-`;
+    </div>`;
 }
 
 //Generate Engineer card
 function engineerGen(engineerData) {
-  return `
-  <div class="card" style="width: 18rem;">
+  return `<div class="card" style="width: 18rem;">
     <div class="card-header">
       ${engineerData.name}
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">ID: ${engineerData.id}</li>
-      <li class="list-group-item">Email: ${engineerData.email}</li>
-      <li class="list-group-item">GitHub: ${engineerData.github}</li>
+      <li class="list-group-item">Email: <a href="mailto:${engineerData.email}">${engineerData.email}</a></li>
+      <li class="list-group-item">GitHub: <a href="https://github.com/${engineerData.github}" target="_blank">@${engineerData.github}</a></li>
     </ul>
-    </div>
-`;
+    </div>`;
 }
 
 //Generate Intern card
 function internGen(internData) {
-  return `
-  <div class="card" style="width: 18rem;">
-    <div class="card-header col-lg-4">
+  return `<div class="card" style="width: 18rem;">
+    <div class="card-header">
       ${internData.name}
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">ID: ${internData.id}</li>
-      <li class="list-group-item">Email: ${internData.email}</li>
+      <li class="list-group-item">Email: <a href="mailto:${internData.email}">${internData.email}</a></li>
       <li class="list-group-item">Current School: ${internData.school}</li>
     </ul>
-</div>
-`;
+</div>`;
 }
 
 function genHtml(answerArray) {
@@ -64,16 +56,16 @@ function genHtml(answerArray) {
         
         <body>
             <header>
-                <div class="jumbotron jumbotron-fluid">
+                <div style="background-color: rgb(64, 122, 238);" class="jumbotron jumbotron-fluid">
                     <div class="container">
-                        <h1 class="display-4">Dev Team ASSEMBLE!</h1>
+                        <h1 class="display-3">Dev Team ASSEMBLE!</h1>
                         <p class="lead">With our powers combined, all projects can be conqured!</p>
                     </div>
                 </div>
             </header><br>
             <main>
-            <h1 class="display-4">Team Roster</h1><br>
-            <section style="margin: 10px; display: flex; justify-content: center;">`;
+            <h1 class="display-5 d-flex justify-content-center">Team Roster</h1><br>
+            <section style="margin: 10px; display: flex; justify-content: center; justify-content: space-around;">`;
   const htmlBottom = ` </section>
                   </main>
   
@@ -92,7 +84,7 @@ function genHtml(answerArray) {
     }
   });
 
-  fs.writeFile(".index.html", htmlTop + cards + htmlBottom, (err) => {
+  fs.writeFile("index.html", htmlTop + cards.join(" ") + htmlBottom, (err) => {
     err ? console.log(err) : console.log("html has been generated!");
   });
 }
