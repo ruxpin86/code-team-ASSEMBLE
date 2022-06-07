@@ -9,7 +9,7 @@ SO THAT I have quick access to their emails and GitHub profiles
 # Table of Contents
 
 - [Install](#install)
-- [Usage/Learned](#usage/learned)
+- [Learned](#learned)
 - [Preview](#preview)
 - [Badges](#badges)
 - [Questions](#questions)
@@ -22,7 +22,7 @@ SO THAT I have quick access to their emails and GitHub profiles
 
 3. Step by step guide video on how to use this app after cloning, is attached below in [Usage](#usage)
 
-# Usage/Learned
+# Learned
 
 In this challenge there was a considerable difficulty spike compared to our previous challenges. This certainly ratcheted up the incorporation of learned elements from lecture and forced us to think differently about the work flow of developing an app from scratch. Although this was extremely challenging and frustrating at time (and it took me longer than I had thought) I am grateful for the test driven development we wre exposed to. It was counterintuitive to generate tests at first, but in
 

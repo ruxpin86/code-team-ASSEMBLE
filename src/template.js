@@ -2,7 +2,7 @@ const fs = require("fs");
 //Seperate card function for each employee type (3 total)
 function managerGen(managerData) {
   return `<div class="card" style="width: 18rem;">
-    <div class="card-header">
+    <div style="background-color:rgb(109, 155, 109); font-weight: bolder;" class="card-header">
       ${managerData.name}
     </div>
       <ul class="list-group list-group-flush">
@@ -16,7 +16,7 @@ function managerGen(managerData) {
 //Generate Engineer card
 function engineerGen(engineerData) {
   return `<div class="card" style="width: 18rem;">
-    <div class="card-header">
+    <div style="background-color:rgb(109, 155, 109); font-weight: bolder;" class="card-header">
       ${engineerData.name}
     </div>
     <ul class="list-group list-group-flush">
@@ -30,7 +30,7 @@ function engineerGen(engineerData) {
 //Generate Intern card
 function internGen(internData) {
   return `<div class="card" style="width: 18rem;">
-    <div class="card-header">
+    <div style="background-color:rgb(109, 155, 109); font-weight: bolder;" class="card-header">
       ${internData.name}
     </div>
     <ul class="list-group list-group-flush">
