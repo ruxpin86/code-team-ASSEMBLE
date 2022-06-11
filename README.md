@@ -30,7 +30,7 @@ This app when launched from the command line prompts a manager to input their pe
 
 # Preview
 
-Please reference the [YouTube link]() for a video demo of this application.
+![Alt Text](./assets/demo.gif)
 
 # Badges
 
