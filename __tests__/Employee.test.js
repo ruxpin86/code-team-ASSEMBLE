@@ -12,9 +12,9 @@ describe("Employee class", () => {
   });
   it("should get name", () => {
     const employee = new Employee("Jerry", "9", "jerry@email.com");
-    const { empName } = employee;
+    const { name } = employee;
 
-    expect(employee.getName()).toBe(empName);
+    expect(employee.getName()).toBe(name);
   });
 
   it("should get ID", () => {
