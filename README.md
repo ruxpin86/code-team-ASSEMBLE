@@ -32,6 +32,8 @@ This app when launched from the command line prompts a manager to input their pe
 
 ![Alt Text](./assets/demo.gif)
 
+Please reference the [YouTube link](https://www.youtube.com/watch?v=YADEXI9cH94) for a video demo of this application.
+
 # Badges
 
 ![JS](https://img.shields.io/badge/JavaScript-80%25-yellow) ![HTML](https://img.shields.io/badge/HTML-20%25-green)
